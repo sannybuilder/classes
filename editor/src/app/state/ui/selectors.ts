@@ -173,22 +173,22 @@ function isClassMatching(
   return classes.includes(needle);
 }
 
-export const classToDisplay = createSelector(
+export const classToDisplayOrEdit = createSelector(
   state,
-  (state: UiState) => state.classToDisplay
+  (state: UiState) => state.classToDisplayOrEdit
 );
 
 export const classToDisplayCommands = createSelector(
   extensions,
-  classToDisplay,
-  (extensions, classToDisplay) => {
-    if (!classToDisplay) {
+  classToDisplayOrEdit,
+  (extensions, classToDisplayOrEdit) => {
+    if (!classToDisplayOrEdit) {
       return undefined;
     }
 
     const extensionCommands = flatMap(extensions, (extension) => {
       return extension.commands
-        .filter((command) => command.class === classToDisplay)
+        .filter((command) => command.class === classToDisplayOrEdit)
         .map((command) => ({ command, extension: extension.name }));
     });
 

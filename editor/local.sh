@@ -6,6 +6,11 @@ cp ../gta3/enums.json src/assets/gta3
 cp ../vc/enums.json src/assets/vc
 cp ../sa/enums.json src/assets/sa
 
+cp ../gta3/classes.json src/assets/gta3
+cp ../vc/classes.json src/assets/vc
+cp ../sa/classes.json src/assets/sa
+
+
 cd ../generator
 cargo run classes ../gta3/gta3.json > ../editor/src/assets/gta3/classes.db
 cargo run classes ../vc/vc.json > ../editor/src/assets/vc/classes.db

@@ -113,6 +113,12 @@
       "onlyWithExtensionInline": "с расширением {{ extension }}",
       "toggleInlineDescription": "Переключить описание команд"
     },
+    "classEditor": {
+      "title": "Редактор классов",
+      "name": "Имя",
+      "shortDescriptionLong": "Краткое описание",
+      "shortDescriptionShort": "Описание"
+    },
     "commandGames": {
       "changed": "Поддерживается в {{ game }}, но имеет отличия",
       "nop": "Ничего не делает (NOP) в {{ game }}",

@@ -89,6 +89,15 @@ export interface EnumRaw {
   isNew: boolean;
 }
 
+export interface Classes {
+  classes: ClassRaw[];
+}
+
+export interface ClassRaw {
+  name: string;
+  description: string;
+}
+
 export const KNOWN_LANGUAGES = ['en', 'ru', 'cn'];
 
 export enum Game {
@@ -133,6 +142,12 @@ export const GameEnums: Record<Game, string> = {
   [Game.SA]: 'sa/enums.json',
 };
 
+export const GameClasses: Record<Game, string> = {
+  [Game.GTA3]: 'gta3/classes.json',
+  [Game.VC]: 'vc/classes.json',
+  [Game.SA]: 'sa/classes.json',
+};
+
 export const GameTitle: Record<Game, string> = {
   [Game.GTA3]: 'GTA III',
   [Game.VC]: 'Vice City',
@@ -146,6 +161,7 @@ export enum ViewMode {
   EditCommand = 'EditCommand',
   ViewCommand = 'ViewCommand',
   ViewClass = 'ViewClass',
+  EditClass = 'EditClass',
   ViewEnum = 'ViewEnum',
   EditEnum = 'EditEnum',
   ViewAllClasses = 'ViewAllClasses',

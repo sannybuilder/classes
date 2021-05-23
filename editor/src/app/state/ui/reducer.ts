@@ -13,7 +13,7 @@ import {
   resetFilters,
   selectClass,
   selectExtensions,
-  displayClassOverview,
+  displayOrEditClass,
   displayOrEditEnum,
   displayClassesList,
   displayEnumsList,
@@ -39,7 +39,7 @@ export interface UiState {
   viewMode: ViewMode;
   currentPage: number | 'all';
   games: Record<Game, GameState>;
-  classToDisplay?: string;
+  classToDisplayOrEdit?: string;
 }
 
 const defaultFilterState: {
@@ -128,7 +128,7 @@ export const uiReducer = createReducer(
     commandToDisplayOrEdit: undefined,
     extensionToDisplayOrEdit: undefined,
     snippetToDisplayOrEdit: undefined,
-    classToDisplay: undefined,
+    classToDisplayOrEdit: undefined,
     enumToDisplayOrEdit: undefined,
     viewMode: ViewMode.None,
   })),
@@ -178,10 +178,10 @@ export const uiReducer = createReducer(
     }
     return state;
   }),
-  on(displayClassOverview, (state, { className }) => ({
+  on(displayOrEditClass, (state, { className, viewMode }) => ({
     ...state,
-    classToDisplay: className,
-    viewMode: ViewMode.ViewClass,
+    viewMode,
+    classToDisplayOrEdit: className,
   })),
   on(displayClassesList, (state) => ({
     ...state,

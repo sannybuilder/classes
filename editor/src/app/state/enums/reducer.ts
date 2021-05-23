@@ -38,11 +38,7 @@ export const enumsReducer = createReducer(
   })
 );
 
-function updateState(
-  state: EnumsState,
-  game: Game,
-  newState: Partial<EnumsState>
-) {
+function updateState(state: EnumsState, game: Game, newState: Partial<Enums>) {
   return {
     ...state,
     enums: {

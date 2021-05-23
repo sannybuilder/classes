@@ -66,7 +66,7 @@ export const scrollTop = createAction('[ui] scroll top');
 
 export const resetFilters = createAction('[ui] reset filters');
 
-export const displayClassOverview = createAction(
-  '[ui] display class overview',
-  props<{ className: string }>()
+export const displayOrEditClass = createAction(
+  '[ui] display or edit class',
+  props<{ className: string; viewMode: ViewMode }>()
 );

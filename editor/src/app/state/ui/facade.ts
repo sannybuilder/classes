@@ -22,7 +22,6 @@ import {
   resetFilters,
   selectClass,
   selectExtensions,
-  displayClassOverview,
   displayOrEditEnum,
   toggleInlineMethodDescription,
 } from './actions';
@@ -53,7 +52,7 @@ export class UiFacade {
   snippetToDisplayOrEdit$ = this.store$.select(selector.snippetToDisplayOrEdit);
   rows$ = this.store$.select(selector.rows);
 
-  classToDisplay$ = this.store$.select(selector.classToDisplay);
+  classToDisplayOrEdit$ = this.store$.select(selector.classToDisplayOrEdit);
   classToDisplayCommands$ = this.store$.select(selector.classToDisplayCommands);
 
   getAttributeCheckedState(attribute: Attribute, modifier: Modifier) {
@@ -147,9 +146,5 @@ export class UiFacade {
 
   selectClass(game: Game, className: string, state: boolean) {
     this.store$.dispatch(selectClass({ game, className, state }));
-  }
-
-  displayClassOverview(className: string) {
-    this.store$.dispatch(displayClassOverview({ className }));
   }
 }

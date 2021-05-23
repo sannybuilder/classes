@@ -5,8 +5,8 @@ import { combineLatest, merge } from 'rxjs';
 import {
   changePage,
   displayClassesList,
-  displayClassOverview,
   displayEnumsList,
+  displayOrEditClass,
   displayOrEditCommandInfo,
   displayOrEditEnum,
   displayOrEditSnippet,
@@ -98,7 +98,13 @@ export class UiEffects {
               first((v): v is Record<string, Entity[]> => !!v),
               map((entities) => {
                 if (flatMap(entities).some((e) => e.name === className)) {
-                  return displayClassOverview({ className });
+                  return displayOrEditClass({
+                    className,
+                    viewMode:
+                      action === 'edit'
+                        ? ViewMode.EditClass
+                        : ViewMode.ViewClass,
+                  });
                 } else {
                   return stopEditOrDisplay();
                 }

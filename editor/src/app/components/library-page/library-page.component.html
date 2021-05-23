@@ -109,9 +109,18 @@
         >
           {{ "ui.shared.edit" | translate }}
         </a>
+        <a
+          *ngIf="viewMode === ViewMode.ViewClass && canEdit$ | async"
+          class="btn btn-outline-success"
+          [routerLink]="['/', game, 'classes', classToDisplayOrEdit, 'edit']"
+        >
+          {{ "ui.shared.edit" | translate }}
+        </a>
         <button
           *ngIf="
-            viewMode === ViewMode.EditCommand || viewMode === ViewMode.EditEnum
+            viewMode === ViewMode.EditCommand ||
+            viewMode === ViewMode.EditEnum ||
+            viewMode === ViewMode.EditClass
           "
           [disabled]="shouldDisableSaveButton(viewMode)"
           type="button"
@@ -150,7 +159,7 @@
       <scl-class-overview
         *ngIf="viewMode === ViewMode.ViewClass"
         [game]="game"
-        [className]="classToDisplay$ | async"
+        [className]="classToDisplayOrEdit"
         [classCommands]="classCommands$ | async"
       ></scl-class-overview>
       <scl-class-list
@@ -158,6 +167,12 @@
         [game]="game"
         [entities]="entities$ | async"
       ></scl-class-list>
+      <scl-class-editor
+        *ngIf="viewMode === ViewMode.EditClass"
+        [game]="game"
+        [className]="classToDisplayOrEdit"
+      >
+      </scl-class-editor>
       <scl-enum-overview
         *ngIf="viewMode === ViewMode.ViewEnum && enumToDisplayOrEdit"
         [enumToView]="enumToDisplayOrEdit"

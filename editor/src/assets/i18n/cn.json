@@ -113,6 +113,12 @@
       "onlyWithExtension": "仅使用于 {{ extension }} 拓展",
       "onlyWithExtensionInline": "带有 {{ extension }} 拓展"
     },
+    "classEditor": {
+      "title": "Edit Class",
+      "name": "Name",
+      "shortDescriptionLong": "简短的描述",
+      "shortDescriptionShort": "描述."
+    },
     "commandGames": {
       "changed": "支持 {{ game }},但参数数量不同",
       "nop": "在 {{ game }} 中没有任何操作(NOP)",

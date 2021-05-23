@@ -1,0 +1,31 @@
+<div class="row mb-2">
+  <div class="col-12 d-flex justify-content-end"></div>
+</div>
+
+<h5>
+  {{ "ui.classEditor.title" | translate }}
+</h5>
+
+<hr />
+
+<div class="row mb-2 position-relative">
+  <div class="col-12 col-md-6 mb-2 mb-md-0">
+    <div class="input-group">
+      <span class="input-group-text d-none d-md-inline">{{
+        "ui.classEditor.name" | translate
+      }}</span>
+      <input type="text" [ngModel]="className" class="form-control" autofocus />
+    </div>
+  </div>
+</div>
+
+<div class="row mb-2 position-relative">
+  <div class="col-12">
+    <div class="input-group">
+      <span class="input-group-text d-none d-md-inline">{{
+        "ui.classEditor.shortDescriptionLong" | translate
+      }}</span>
+      <input type="text" class="form-control" />
+    </div>
+  </div>
+</div>
