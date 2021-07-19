@@ -42,7 +42,8 @@
       "newCommand": "Command",
       "downloads": "Download",
       "collapseSidebar": "Collapse sidebar",
-      "uncollapseSidebar": "Uncollapse sidebar"
+      "uncollapseSidebar": "Uncollapse sidebar",
+      "findCommand": "Find command"
     },
     "filters": {
       "filterExtensions": "Filter by extensions",
@@ -130,6 +131,12 @@
       "same": "Supported in {{ game }}",
       "unsupported": "Not supported in {{ game }}",
       "doesNotExist": "Does not exist in {{ game }}"
+    },
+    "tree": {
+      "startOver": "Start over",
+      "back": "Back",
+      "title": "Find Command",
+      "useCommand": "Use {{ command }}"
     },
     "picker": {
       "newPlaceholder": "Enter new name"

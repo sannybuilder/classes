@@ -6,6 +6,7 @@ import {
   changePage,
   displayClassesList,
   displayClassOverview,
+  displayDecisionTree,
   displayEnumsList,
   displayOrEditCommandInfo,
   displayOrEditEnum,
@@ -57,6 +58,9 @@ export class UiEffects {
           { opcode, extension, enumName, className, action, searchTerm },
           canEdit,
         ]) => {
+          if (action === 'decision-tree') {
+            return [displayDecisionTree()];
+          }
           if (enumName) {
             if (enumName === 'all') {
               return [displayEnumsList()];

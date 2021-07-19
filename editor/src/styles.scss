@@ -59,7 +59,7 @@ em {
   font-style: normal;
 }
 
-a:not(.nav-link, .page-link, .btn, .dropdown-item) {
+a:not(.nav-link, .page-link, .btn, .dropdown-item, .list-group-item) {
   text-decoration: underline;
 }
 

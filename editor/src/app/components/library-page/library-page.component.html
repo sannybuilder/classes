@@ -165,6 +165,17 @@
         </scl-icon-button>
 
         <button
+          *ngIf="
+            viewMode === ViewMode.ViewDecisionTree &&
+            (canGoBackInDecisionTree$ | async)
+          "
+          class="btn btn-outline-secondary"
+          (click)="treeBack()"
+        >
+          {{ "ui.tree.back" | translate }}
+        </button>
+
+        <button
           type="button"
           class="btn btn-outline-secondary ml-auto"
           (click)="onCancel()"
@@ -203,10 +214,25 @@
         >
           {{ "ui.shared.save" | translate }}
         </button>
+
+        <button
+          *ngIf="
+            viewMode === ViewMode.ViewDecisionTree &&
+            (canGoBackInDecisionTree$ | async)
+          "
+          class="btn btn-outline-success"
+          (click)="treeRestart()"
+        >
+          {{ "ui.tree.startOver" | translate }}
+        </button>
       </div>
     </ng-template>
 
     <ng-template #rightRail>
+      <scl-decision-tree
+        *ngIf="viewMode === ViewMode.ViewDecisionTree"
+        [game]="game"
+      ></scl-decision-tree>
       <scl-command-editor
         *ngIf="viewMode === ViewMode.EditCommand && command"
         [command]="command"

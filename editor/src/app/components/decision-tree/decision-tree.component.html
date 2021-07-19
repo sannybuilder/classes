@@ -1,0 +1,38 @@
+<div class="row mb-2">
+  <div class="col-12 d-flex flex-row">
+    <h5 class="mr-3">{{ "ui.tree.title" | translate }}</h5>
+  </div>
+</div>
+
+<hr />
+
+<p *ngIf="currentLine$ | async as currentLine">
+  {{ currentLine }}.<ng-container *ngIf="(hasReachedTheEnd$ | async) !== true"
+    >..</ng-container
+  >
+</p>
+
+<div class="list-group">
+  <a
+    href="#"
+    class="list-group-item list-group-item-action"
+    *ngFor="let node of nextNodes$ | async"
+    (click)="next(node)"
+  >
+    <ng-container
+      *ngIf="
+        node.opcode && (getCommand(node.opcode) | async) as command;
+        else nextTemplate
+      "
+    >
+      {{ "ui.tree.useCommand" | translate: { command: command.name } }}
+    </ng-container>
+
+    <ng-template #nextTemplate>
+      {{ "tree." + node.label | translate | stripPunctuation }}.<ng-container
+        *ngIf="!isThisNodeTerminal(node)"
+        >..</ng-container
+      >
+    </ng-template>
+  </a>
+</div>

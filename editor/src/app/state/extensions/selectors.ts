@@ -51,11 +51,11 @@ export const extensionCommand = createSelector(
   extensions,
   (
     extensions: Extension[] | undefined,
-    props: { extension: string; command: Command }
+    props: { extension: string; id: string }
   ) =>
     extensions
       ?.find((e) => e.name === props.extension)
-      ?.commands?.find((c) => c.id === props.command.id)
+      ?.commands?.find((c) => c.id === props.id)
 );
 
 export const loading = createSelector(

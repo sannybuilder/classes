@@ -46,16 +46,10 @@ export class ExtensionsFacade {
     return this.store$.select(selector.classOrigin, { className });
   }
 
-  getExtensionCommand({
-    command,
-    extension,
-  }: {
-    command: Command;
-    extension: string;
-  }) {
+  getExtensionCommand({ id, extension }: { id: string; extension: string }) {
     return this.store$.select(selector.extensionCommand, {
       extension,
-      command,
+      id,
     });
   }
 

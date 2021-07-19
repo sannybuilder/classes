@@ -17,6 +17,7 @@ import {
   displayOrEditEnum,
   displayClassesList,
   displayEnumsList,
+  displayDecisionTree,
   toggleInlineMethodDescription,
   toggleOpcodePresentation,
   toggleSearchHelp,
@@ -205,6 +206,10 @@ export const uiReducer = createReducer(
   on(displayEnumsList, (state) => ({
     ...state,
     viewMode: ViewMode.ViewAllEnums,
+  })),
+  on(displayDecisionTree, (state) => ({
+    ...state,
+    viewMode: ViewMode.ViewDecisionTree,
   })),
   on(toggleSearchHelp, (state, { shouldDisplay, force }) => {
     const displaySearchHelp = force

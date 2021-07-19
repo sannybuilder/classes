@@ -83,7 +83,7 @@ export class ExtensionsEffects {
                 .pipe(
                   withLatestFrom(
                     this._extensions.getExtensionCommand({
-                      command,
+                      id: command.id,
                       extension: oldExtension,
                     })
                   ),

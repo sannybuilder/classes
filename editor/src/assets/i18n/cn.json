@@ -42,7 +42,8 @@
       "newCommand": "命令",
       "downloads": "下载",
       "collapseSidebar": "Collapse sidebar",
-      "uncollapseSidebar": "Uncollapse sidebar"
+      "uncollapseSidebar": "Uncollapse sidebar",
+      "findCommand": "Find command"
     },
     "filters": {
       "filterExtensions": "按拓展名筛选",
@@ -130,6 +131,12 @@
       "same": "支持 {{ game }}",
       "unsupported": "不支持 {{ game }}",
       "doesNotExist": "不存在于 {{ game }}"
+    },
+    "tree": {
+      "startOver": "Start over",
+      "back": "Back",
+      "title": "Find Command",
+      "useCommand": "Use {{ command }}"
     },
     "picker": {
       "newPlaceholder": "输入新名称"

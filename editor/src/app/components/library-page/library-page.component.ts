@@ -29,6 +29,7 @@ import {
   UiFacade,
   GameFacade,
   EnumsFacade,
+  TreeFacade,
 } from '../../state';
 import { FUSEJS_OPTIONS } from '../../utils';
 import { Router } from '@angular/router';
@@ -75,6 +76,9 @@ export class LibraryPageComponent implements OnInit, OnDestroy, AfterViewInit {
 
   displaySearchHelp$ = this._ui.displaySearchHelp$;
   isSidebarCollapsed$ = this._ui.isSidebarCollapsed$;
+  canGoBackInDecisionTree$ = this._tree.currentNode$.pipe(
+    map((node) => node.id !== 'root')
+  );
 
   command?: Command;
   oldCommand?: Command;
@@ -93,6 +97,7 @@ export class LibraryPageComponent implements OnInit, OnDestroy, AfterViewInit {
     private _ui: UiFacade,
     private _snippets: SnippetsFacade,
     private _game: GameFacade,
+    private _tree: TreeFacade,
     private _enums: EnumsFacade,
     private _router: Router,
     private _ref: ChangeDetectorRef,
@@ -362,6 +367,14 @@ export class LibraryPageComponent implements OnInit, OnDestroy, AfterViewInit {
     }
 
     return undefined;
+  }
+
+  treeBack() {
+    this._tree.back();
+  }
+
+  treeRestart() {
+    this._tree.restart();
   }
 
   private _onSaveCommand() {

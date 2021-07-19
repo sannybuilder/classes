@@ -42,7 +42,8 @@
       "newCommand": "Команду",
       "downloads": "Скачать",
       "collapseSidebar": "Закрыть боковую панель",
-      "uncollapseSidebar": "Раскрыть боковую панель"
+      "uncollapseSidebar": "Раскрыть боковую панель",
+      "findCommand": "Найти команду по ситуации"
     },
     "filters": {
       "filterExtensions": "Фильтр по расширениям",
@@ -130,6 +131,12 @@
       "same": "Поддерживается в {{ game }}",
       "unsupported": "Не поддерживается в {{ game }}",
       "doesNotExist": "Отсутствует в {{ game }}"
+    },
+    "tree": {
+      "startOver": "Начать заново",
+      "back": "Назад",
+      "title": "Поиск по ситуации",
+      "useCommand": "Используйте {{ command }}"
     },
     "picker": {
       "newPlaceholder": "Введите новое имя"

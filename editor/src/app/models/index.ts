@@ -158,6 +158,7 @@ export enum ViewMode {
   EditEnum = 'EditEnum',
   ViewAllClasses = 'ViewAllClasses',
   ViewAllEnums = 'ViewAllEnums',
+  ViewDecisionTree = 'ViewDecisionTree',
 }
 
 export type Modifier = 'except' | 'only';

@@ -5,3 +5,4 @@ export { SnippetsFacade } from './snippets/facade';
 export { ChangesFacade } from './changes/facade';
 export { GameFacade } from './game/facade';
 export { EnumsFacade } from './enums/facade';
+export { TreeFacade } from './tree/facade';

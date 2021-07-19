@@ -58,6 +58,7 @@ export const displayOrEditEnum = createAction(
 
 export const displayClassesList = createAction('[ui] display classes list');
 export const displayEnumsList = createAction('[ui] display enums list');
+export const displayDecisionTree = createAction('[ui] display decision tree');
 
 export const stopEditOrDisplay = createAction('[ui] stop edit or display');
 

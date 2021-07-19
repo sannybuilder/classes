@@ -34,6 +34,7 @@ import {
   PropExtractPipe,
   OpcodeParamsPipe,
   FilterMethodsPipe,
+  StripPunctuationPipe,
 } from './pipes';
 
 // extensions state
@@ -62,6 +63,10 @@ import { gameReducer } from './state/game/reducer';
 // enums state
 import { EnumsEffects } from './state/enums/effects';
 import { enumsReducer } from './state/enums/reducer';
+
+// tree state
+import { treeReducer } from './state/tree/reducer';
+import { TreeEffects } from './state/tree/effects';
 
 import { ConfigModule } from './config';
 import { AuthGuard, RouteGuard } from './route.guard';
@@ -105,6 +110,7 @@ import {
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { LibraryPageComponent } from './components/library-page/library-page.component';
 import { KNOWN_LANGUAGES } from './models';
+import { DecisionTreeComponent } from './components/decision-tree/decision-tree.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -157,6 +163,7 @@ const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
     PropExtractPipe,
     OpcodeParamsPipe,
     FilterMethodsPipe,
+    StripPunctuationPipe,
     CommandEditorComponent,
     HeaderComponent,
     CommandInfoComponent,
@@ -178,6 +185,7 @@ const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
     ClassListComponent,
     IconButtonComponent,
     CopyButtonComponent,
+    DecisionTreeComponent,
   ],
   imports: [
     BrowserModule,
@@ -223,6 +231,7 @@ const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
         game: gameReducer,
         snippets: snippetsReducer,
         ui: uiReducer,
+        tree: treeReducer,
       },
       { metaReducers }
     ),
@@ -233,6 +242,7 @@ const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
       ExtensionsEffects,
       SnippetsEffects,
       UiEffects,
+      TreeEffects,
     ]),
     DragDropModule,
     ClipboardModule,

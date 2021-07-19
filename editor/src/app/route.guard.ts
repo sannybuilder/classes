@@ -73,6 +73,15 @@ export class RouteGuard implements CanActivate {
       return true;
     }
 
+    if (subPath === 'find') {
+      this._game.onListEnter({
+        game,
+        extension: DEFAULT_EXTENSION,
+        action: 'decision-tree',
+      });
+      return true;
+    }
+
     // extensions
     const opcode = segments.shift();
     const extension = subPath || DEFAULT_EXTENSION;
